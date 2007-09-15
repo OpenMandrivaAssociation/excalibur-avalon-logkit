@@ -45,7 +45,7 @@
 
 Name:           excalibur-avalon-logkit
 Version:        2.1
-Release:        %mkrel 10.0.2
+Release:        %mkrel 10.0.3
 Epoch:          0
 Summary:        Excalibur's Logkit package
 License:        Apache Software License 
@@ -86,8 +86,6 @@ BuildArch:      noarch
 %endif
 %if %{gcj_support}
 BuildRequires:    java-gcj-compat-devel
-Requires(post):   java-gcj-compat
-Requires(postun): java-gcj-compat
 %endif
 
 %description
