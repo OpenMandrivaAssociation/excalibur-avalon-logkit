@@ -34,7 +34,6 @@
 
 # If you don't want to build with maven, and use straight ant instead,
 # give rpmbuild option '--without maven'
-
 %define _without_maven 1
 %define with_maven %{!?_without_maven:1}%{?_without_maven:0}
 %define without_maven %{?_without_maven:1}%{!?_without_maven:0}
@@ -45,7 +44,7 @@
 
 Name:           excalibur-avalon-logkit
 Version:        2.1
-Release:        %mkrel 10.0.3
+Release:        %mkrel 10.0.4
 Epoch:          0
 Summary:        Excalibur's Logkit package
 License:        Apache Software License 
@@ -59,6 +58,7 @@ Source4:        excalibur-avalon-logkit-2.1-jpp-depmap.xml
 Source5:        excalibur-avalon-logkit-project-common.xml
 Source6:        excalibur-buildsystem.tar.gz
 Source7:        excalibur-avalon-logkit-build.xml
+Source8:        excalibur-avalon-logkit.pom
 Patch0:         excalibur-avalon-logkit-2.1-project_xml.patch
 
 Requires:       javamail
@@ -167,6 +167,13 @@ pushd $RPM_BUILD_ROOT%{_javadir}
 ln -sf %{grname}/%{usname}.jar %{usname}.jar
 popd
 
+#poms
+%add_to_maven_depmap excalibur avalon-logkit %{version} JPP/excalibur avalon-logkit
+#%add_to_maven_depmap logkit logkit 2.1 JPP/excalibur avalon-logkit
+install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/maven2/poms
+install -m 644 %{SOURCE8} \
+    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.excalibur-avalon-logkit.pom
+
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 %if %{with_maven}
 cp -pr target/docs/apidocs/* \
@@ -187,11 +194,15 @@ cp LICENSE.txt $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%if %{gcj_support}
 %post
+%update_maven_depmap
+%if %{gcj_support}
 %{update_gcjdb}
+%endif
 
 %postun
+%update_maven_depmap
+%if %{gcj_support}
 %{clean_gcjdb}
 %endif
 
@@ -200,6 +211,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}-%{version}/LICENSE.txt
 %{_javadir}/%{grname}/*.jar
 %{_javadir}/*.jar
+%{_datadir}/maven2/poms/*
+%{_mavendepmapfragdir}
 %if %{gcj_support}
 %dir %{_libdir}/gcj/%{name}
 %attr(-,root,root) %{_libdir}/gcj/%{name}/%{usname}-%{version}.jar.*
