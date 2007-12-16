@@ -44,7 +44,7 @@
 
 Name:           excalibur-avalon-logkit
 Version:        2.1
-Release:        %mkrel 10.0.4
+Release:        %mkrel 10.0.5
 Epoch:          0
 Summary:        Excalibur's Logkit package
 License:        Apache Software License 
@@ -74,7 +74,7 @@ BuildRequires:  saxon-scripts
 BuildRequires:  ant >= 0:1.6
 %endif
 BuildRequires:  junit
-BuildRequires:  jpackage-utils >= 0:1.6
+BuildRequires:  java-rpmbuild >= 0:1.6
 BuildRequires:  geronimo-javamail-1.3.1-api
 BuildRequires:  geronimo-jms-1.1-api
 BuildRequires:  log4j
