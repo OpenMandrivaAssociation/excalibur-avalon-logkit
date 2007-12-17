@@ -80,7 +80,6 @@ BuildRequires:  geronimo-jms-1.1-api
 BuildRequires:  log4j
 BuildRequires:  servletapi5
 
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 %if ! %{gcj_support}
 BuildArch:      noarch
 %endif
