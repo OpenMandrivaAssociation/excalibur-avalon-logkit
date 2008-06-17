@@ -44,7 +44,7 @@
 
 Name:           excalibur-avalon-logkit
 Version:        2.1
-Release:        %mkrel 10.0.5
+Release:        %mkrel 10.0.6
 Epoch:          0
 Summary:        Excalibur's Logkit package
 License:        Apache Software License 
