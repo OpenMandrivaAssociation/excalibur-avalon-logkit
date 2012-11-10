@@ -1,0 +1,10 @@
+sources:
+  "avalon-logkit-2.1-src.tar.gz:"	a1fc2054d375461b6781fa9b5274298d0b158c7a
+  "excalibur-avalon-logkit-2.1-jpp-depmap.xml:"	7d7fab72ceb6c0f8430723766db321a659376728
+  "excalibur-avalon-logkit-build.xml:"	beb64b863df9778ea0dd628b54f1116cb227b209
+  "excalibur-avalon-logkit.pom:"	ce0139eb3ddd6179078b6eb84f96739b8bba2e63
+  "excalibur-avalon-logkit-project-common.xml:"	bb07f7c82187e5a752606e8e5fc3cf1eb5d2e45e
+  "excalibur-buildsystem.tar.gz:"	4c30dafa60916f8c0b41e0dc2ab510f6eca0a152
+  "pom-maven2jpp-depcat.xsl:"	5861cae5f65e559ece90a7342d182f5a534b65de
+  "pom-maven2jpp-mapdeps.xsl:"	88cf7a33ad75ef2554765bbc80d1605d284348f3
+  "pom-maven2jpp-newdepmap.xsl:"	834413ffc7f650705ce65ca2c89100153142cd92
