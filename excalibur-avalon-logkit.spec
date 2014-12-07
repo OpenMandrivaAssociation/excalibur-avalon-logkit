@@ -44,7 +44,7 @@
 
 Name:           excalibur-avalon-logkit
 Version:        2.1
-Release:        17
+Release:        18
 Epoch:          0
 Summary:        Excalibur's Logkit package
 License:        Apache Software License 
